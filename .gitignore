@@ -10,6 +10,8 @@ __pycache__/
 # my local text file where I keep my notes for the homework answers
 homework_answers.txt
 
+# everything in my blind mount, i.e. the physical data storage
+ny_taxi_postgres_data
 
 # ignoring parquet files
 *.parquet
