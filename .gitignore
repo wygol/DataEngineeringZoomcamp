@@ -13,6 +13,9 @@ homework_answers.txt
 # everything in my blind mount, i.e. the physical data storage
 ny_taxi_postgres_data
 
+# also for pgadmin
+pgadmin_data
+
 # ignoring parquet files
 *.parquet
 

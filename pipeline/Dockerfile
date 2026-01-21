@@ -27,12 +27,12 @@ COPY "pyproject.toml"  "uv.lock" ".python-version" ./
 RUN uv sync --locked
 
 
-# this copies the .../pipeline/pipeline.py to the /app/pipeline.py
-COPY pipeline.py ./
+# this copies the .../pipeline/ingest_data.py to the /app/ingest_data.py
+COPY ingest_data.py ./
 
 # this will trigger that the container runs python pipeline.py in its CLI and 
 # then I can write the asked system argument vector in the initial docker run
 # so the month specification 
 # the entrypoint is a default command to run. so normally we would have a main.py
 # or something with a similar logic here
-ENTRYPOINT ["python", "pipeline.py"]
+ENTRYPOINT ["python", "ingest_data.py"]

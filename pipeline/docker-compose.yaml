@@ -1,0 +1,36 @@
+# need a pgdatabase container and a pgadmin container
+# everything run inside a docker-compose is run in the same network, 
+# so this makes accessing easier
+
+# the ingestion container is run seperately though(?)
+
+
+services:
+  pgdatabase:
+    image: postgres:18
+    environment:
+      POSTGRES_USER: "root"
+      POSTGRES_PASSWORD: "root"
+      POSTGRES_DB: "ny_taxi"
+    volumes:
+      - "./ny_taxi_postgres_data:/var/lib/postgresql"
+    ports:
+      - "5432:5432"
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "admin@admin.com"
+      PGADMIN_DEFAULT_PASSWORD: "root"
+    volumes:
+      - "./pgadmin_data:/var/lib/pgadmin"
+    ports:
+      - "8085:80"
+
+
+
+# volumes:
+  # ny_taxi_postgres_data:
+  # pgadmin_data:
+
+# no naming volumes here since I use a blind mount!
