@@ -1,0 +1,8 @@
+
+taxi_zone_lookup:
+  columns:
+    LocationID: "Int64"
+    Borough: "string"
+    Zone: "string"
+    service_zone: "string"
+ 

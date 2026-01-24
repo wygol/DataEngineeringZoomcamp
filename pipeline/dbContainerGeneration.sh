@@ -42,3 +42,14 @@ sudo docker run -it --rm -e PGADMIN_DEFAULT_EMAIL="admin@admin.com" \
 
  # script for calling the dockerized ingestion script (ingetst_data.py) and use its custom url link ingestion (parquet to db)
  sudo docker run -it --rm  --network=pipeline_default ingestion:latest link  --user=root --password=root --host=pgdatabase --port=5432 --db=ny_taxi --table=green_taxi_trips --url=https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2025-11.parquet --schema --dtype=parquet
+
+ # and then for the zones (this is the script with a schemafile for a more dynamic way of loading csv to the database)
+ sudo docker run -it --rm \
+  --network=pipeline_default \
+  -v $(pwd)/loadSchema.yaml:/app/schema.yaml \
+  ingestion:latest link \
+    --host=pgdatabase --user=root --password=root --port=5432 \
+    --table=taxi_zone_lookup  --db=ny_taxi --table=green_taxi_trips \
+    --url=https://github.com/DataTalksClub/nyc-tlc-data/releases/download/misc/taxi_zone_lookup.csv \
+    --schema --dtype=csv \
+    --schemafile=/app/schema.yaml
