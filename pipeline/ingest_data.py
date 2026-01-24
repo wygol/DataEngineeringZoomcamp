@@ -209,6 +209,8 @@ def ingest_data(
     url = prefix + filename
 
     # declaring types of columns after inspection
+    # I will also have to change this to use the yaml file because the github data is also always different
+    # but when I do this I can refactor the entire code in the same instance, because right now this is a mess. TODO
     dtypes = {
         "VendorID": "Int64",
         "passenger_count": "Int64",
