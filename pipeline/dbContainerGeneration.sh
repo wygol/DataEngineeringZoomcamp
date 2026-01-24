@@ -38,3 +38,7 @@ zoomcamp1:v2 --user="root" \
 sudo docker run -it --rm -e PGADMIN_DEFAULT_EMAIL="admin@admin.com" \
  -e PGADMIN_DEFAULT_PASSWORD="root" -v $(pwd)/pgadmin_data:/var/lib/pgadmin \
  -p 8085:80 --network=pg-network --name=pgadmin dpage/pgadmin4
+
+
+ # script for calling the dockerized ingestion script (ingetst_data.py) and use its custom url link ingestion (parquet to db)
+ sudo docker run -it --rm  --network=pipeline_default ingestion:latest link  --user=root --password=root --host=pgdatabase --port=5432 --db=ny_taxi --table=green_taxi_trips --url=https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2025-11.parquet --schema --dtype=parquet
