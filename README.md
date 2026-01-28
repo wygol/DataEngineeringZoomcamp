@@ -1,4 +1,5 @@
-# DTC_docker-workshop
+# Dataclub.talks Data Engineering Zoomcamp
+## Module 1
 Workshop Repository for Module 1 of the Data Engineering Zoomcamp offered by datatalks.club
 
 Note: Structure may be changed in the following days so that all modules solutions will be stored here (instead of a repo for each module)
