@@ -10,4 +10,4 @@ Here you will find:
 * the [Docker-Compose](./Module1/pipeline/docker-compose.yaml) for the database and pgadmin container
 
 
-## Module 2
+## [Module 2](./Module2/)
