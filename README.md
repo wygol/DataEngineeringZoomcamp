@@ -12,3 +12,6 @@ Here you will find:
 
 
 ## [Module 2](./Module2/)
+In this module I reused some code from Module 1 (and also switched my Docker setup from blind mounts to volumes, so that I dont have to care about my local paths in the future Modules). I enhanced my
+[Docker Compose](./Module2/docker-compose.yml) file with the kestra service and learned how to use kestra efficiently to orchestrate my workflows. 
+I also implemented a gemini pro api key in kestra so that I can use the power of AI inside the orchestration tool (this works especially good with retrieval augmented generation (RAG))
