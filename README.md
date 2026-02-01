@@ -8,6 +8,7 @@ Here you will find:
 * the [sql](./Module1/pipeline/solutionQueries.sql) queries for the homework
 * the [Dockerfile](./Module1/pipeline/Dockerfile) for the ingestion script
 * the [Docker-Compose](./Module1/pipeline/docker-compose.yaml) for the database and pgadmin container
+* the [Terraform](./Module2/main.tf) setup is already stored in Module 2 because it will be used there
 
 
-## Module 2
+## [Module 2](./Module2/)
