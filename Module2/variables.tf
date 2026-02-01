@@ -3,7 +3,8 @@
 variable "service_key" {
   description = "The path to the key to connect to the GCP account service"
   type        = string
-  # DEFINE YOUR OWN KEY HERE OR IN A terraform.tfvars
+  # DEFINE YOUR OWN KEY HERE or even better in your own "terraform.tfvars" file
+  # and then gitignore that .tfvars file to keep your keys secure
 
 }
 
@@ -50,4 +51,17 @@ variable "public_access_prevention" {
   default     = "enforced"
 
 }
+# --------------------------------------------------------------------------
+
+# bigQuery setup
+# --------------------------------------------------------------------------
+variable "dataset_id" {
+  description = "Dataset name (of an already existing bucket?)"
+  default = "ny_taxi_data"
+
+}
+
+
+
+
 # --------------------------------------------------------------------------
