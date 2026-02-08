@@ -16,3 +16,7 @@ In this module I reused some code from Module 1 (and also switched my Docker set
 [Docker Compose](./Module2/docker-compose.yml) file with the kestra service and learned how to use kestra efficiently to orchestrate my workflows. 
 I also implemented a gemini pro api key in kestra so that I can use the power of AI inside the orchestration tool (this works especially good with retrieval augmented generation (RAG))
 The answers to the homework can be found [here](./Module2/HomeworkSolutions.sql)
+
+
+## [Module 3](./Module3/)
+In this module I was introduced to the general architecture of BigQuery, how it works, and how to optimize bq queries. I learned when to use partitions and clusters and in which cases such optimization techniques are not helpful. I also got a short introduction into BigQuery ML techniques. To see my answers for the homework (with the bq queries) see [this](./Module3/bigQuerySQL.sql). I set up the GCP infrastructure with terraform from [Module 2](./Module/) again and used the python ingestion script presented in the DataEngineering Zoomcamp course. I changed the script to fit my needs, but there was not much coding to do there.
