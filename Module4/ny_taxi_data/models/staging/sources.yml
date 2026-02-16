@@ -1,0 +1,19 @@
+version: 2
+
+sources:
+- name: raw_data # arbitrary name but should be useful
+  description: "Raw data for bigquery and for the NYC taxi rides dataset"
+  database: wygolde # project ID
+  schema: ny_taxi_data # bq dataset name
+  tables:
+    - name: green_tripdata # actual bq tables
+      description: Green taxi data from my bigquery instance 
+      columns:
+        - name: vendorid
+          description: |
+           A code indicating the the provider associated with trip type:
+           1 : a
+           2 : b
+           3 : c
+    - name: yellow_tripdata
+      description: Yellow taxi data from my bigquery instance

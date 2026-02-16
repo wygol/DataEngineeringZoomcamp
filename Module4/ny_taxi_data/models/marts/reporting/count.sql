@@ -1,0 +1,1 @@
+select count(*) from {{ ref('ftc_monthly_revenue') }}
