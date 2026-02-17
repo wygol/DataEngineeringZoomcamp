@@ -1,4 +1,6 @@
-code for dbt
+You will find all the code for dbt here. dbt is isolated into this subfolder. NYC taxi data has been uploaded to BigQuery (and first stored in Google Cloud Storage) via Kestra. The cloud infrastructure was set up via terraform (see Modules 1 to 3 for this again). This module focused on dbt and Analytics Engineering which is quite a big field and there is a lot to learn here. This module had a lot of new learnings for me but you will find everything that I learned here. 
 
-in the following image you can see the kestra upload process for the fhv data
+You can also see an image here from kestra. As you can see, I had some problems with my biqguery upload and analysis pipeline for the fhv_tripdata (which is a data source that we haven't used at all in this course so far and I had to adapt my kestra flows for this script). Luckily I already had the old kestra flow for other NYC taxi data so I just had to change some parameters and could execute the flow then.
 ![kestra upload process for the fhv data](../assets/images/kestraDashboardSnapshot.jpg)
+
+I want to conclude with the following learning: dbt is extremely useful for bringing a structure into analytics. Data Analysis is often exploratory and intermediate results are lost or saved inefficiently as files in random places. With dbt, data analysis inherits a structure that allows to recreate an analysis every time! There are also lots of other useful tools, like a lineage graph, which I did not use myself. However, I will definitely check them out in the future because dbt is a new tool in toolcase that has come to stay. 
