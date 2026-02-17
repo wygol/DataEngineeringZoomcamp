@@ -20,3 +20,7 @@ The answers to the homework can be found [here](./Module2/HomeworkSolutions.sql)
 
 ## [Module 3](./Module3/)
 In this module I was introduced to the general architecture of BigQuery, how it works, and how to optimize bq queries. I learned when to use partitions and clusters and in which cases such optimization techniques are not helpful. I also got a short introduction into BigQuery ML techniques. To see my answers for the homework (with the bq queries) see [this](./Module3/bigQuerySQL.sql). I set up the GCP infrastructure with terraform from [Module 2](./Module/) again and used the python ingestion script presented in the DataEngineering Zoomcamp course. I changed the script to fit my needs, but there was not much coding to do there.
+
+
+## [Module 4](./Module4/)
+This module focuses on Analytics Engineering with dbt via a local or remote setup. The local setup makes use of duckdb while the remote setup uses dbt labs and connects via their web gui to my bigquery instance. I used the remote approach for this task, so that I can benefit from my previously developed setup (terraform etc.).
