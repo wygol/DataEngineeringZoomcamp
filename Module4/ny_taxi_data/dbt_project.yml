@@ -31,6 +31,14 @@ clean-targets:         # directories to be removed by `dbt clean`
 # files using the `{{ config(...) }}` macro.
 models:
   ny_taxi_data:
-    # Config indicated by + and applies to all files under models/example/
-    example:
+    # 1. Keep staging as views (fast, zero storage cost)
+    staging:
       +materialized: view
+    
+    # 2. Make intermediate models ephemeral (they don't exist in DB, just logic)
+    intermediate:
+      +materialized: ephemeral
+      
+    # 3. Make your final Marts (Core) actual tables (fast queries for dashboards)
+    marts:
+      +materialized: table
