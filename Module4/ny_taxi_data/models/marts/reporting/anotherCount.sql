@@ -1,0 +1,1 @@
+select count(1) as countName from {{ref("stg_fhv_tripdata")}}

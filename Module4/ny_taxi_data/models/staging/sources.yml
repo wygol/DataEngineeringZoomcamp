@@ -98,3 +98,26 @@ sources:
             description: Improvement surcharge
           - name: total_amount
             description: Total amount charged
+
+      - name: fhv_tripdata
+        columns:
+          - name: unique_row_id
+            description: stores a hexstring with a combination of all columns that guarantees uniqueness across table
+          - name: filename
+            description: path filename where the data is from
+          - name: dispatching_base_num
+            description: ID of dispatching base
+          - name: pickup_datetime
+            description: timestamp of pick up
+          - name: dropOff_datetime
+            description: timestamp of drop off
+          - name: PUlocationID
+            description: location ID of the pick up point 
+          - name: DOlocationID
+            description: location ID of the drop off point
+          - name: SR_Flag
+            description: unknown
+          - name: affiliated_base_number
+            description: mostly useless due to null values
+          
+          
