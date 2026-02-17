@@ -1,30 +1,61 @@
-{{ config(materialized='table') }}
+{{
+  config(
+    materialized='incremental',
+    unique_key='trip_id',
+    incremental_strategy='merge',
+    on_schema_change='append_new_columns'  )
+}}
 
-with trips_unioned as (
-    select * from {{ ref('int_trips_unioned') }}
-),
+-- Fact table containing all taxi trips enriched with zone information
+-- This is a classic star schema design: fact table (trips) joined to dimension table (zones)
+-- Materialized incrementally to handle large datasets efficiently
 
-dim_zones as (
-    select * from {{ ref('dim_zones') }}
-    where borough != 'Unknown'
-)
+select
+    -- Trip identifiers
+    trips.trip_id,
+    trips.vendor_id,
+    trips.service_type,
+    trips.rate_code_id,
 
-select 
-    -- 1. Create a Unique Primary Key
-    to_hex(md5(concat(cast(vendorid as string), cast(pickup_datetime as string)))) as trip_id,
-    
-    -- 2. Basic Trip Info
-    trips_unioned.*, 
-    
-    pickup_zone.borough as pickup_borough, 
-    pickup_zone.zone as pickup_zone, 
-    dropoff_zone.borough as dropoff_borough, 
-    dropoff_zone.zone as dropoff_zone,
+    -- Location details (enriched with human-readable zone names from dimension)
+    trips.pickup_location_id,
+    pz.borough as pickup_borough,
+    pz.zone as pickup_zone,
+    trips.dropoff_location_id,
+    dz.borough as dropoff_borough,
+    dz.zone as dropoff_zone,
 
-    {{ get_payment_type_description('trips_unioned.payment_type') }} as payment_type_description
+    -- Trip timing
+    trips.pickup_datetime,
+    trips.dropoff_datetime,
+    trips.store_and_fwd_flag,
 
-from trips_unioned
-inner join dim_zones as pickup_zone
-on trips_unioned.pickup_location_id = pickup_zone.location_id
-inner join dim_zones as dropoff_zone
-on trips_unioned.dropoff_location_id = dropoff_zone.location_id
+    -- Trip metrics
+    trips.passenger_count,
+    trips.trip_distance,
+    trips.trip_type,
+    {{ get_trip_duration_minutes('trips.pickup_datetime', 'trips.dropoff_datetime') }} as trip_duration_minutes,
+
+    -- Payment breakdown
+    trips.fare_amount,
+    trips.extra,
+    trips.mta_tax,
+    trips.tip_amount,
+    trips.tolls_amount,
+    trips.ehail_fee,
+    trips.improvement_surcharge,
+    trips.total_amount,
+    trips.payment_type,
+    trips.payment_type_description
+
+from {{ ref('int_trips') }} as trips
+-- LEFT JOIN preserves all trips even if zone information is missing or unknown
+left join {{ ref('dim_zones') }} as pz
+    on trips.pickup_location_id = pz.location_id
+left join {{ ref('dim_zones') }} as dz
+    on trips.dropoff_location_id = dz.location_id
+
+{% if is_incremental() %}
+  -- Only process new trips based on pickup datetime
+  where trips.pickup_datetime > (select max(pickup_datetime) from {{ this }})
+{% endif %}
