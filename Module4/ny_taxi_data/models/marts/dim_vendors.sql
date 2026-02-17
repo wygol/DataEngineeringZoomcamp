@@ -1,0 +1,4 @@
+with trips_unioned as (select * from {{ref("int_trips_unioned")}}),
+vendors as (select distinct vendorid as vendor_id, {{get_vendor_names('vendorid')}} as vendor_name
+from trips_unioned)
+select * from vendors

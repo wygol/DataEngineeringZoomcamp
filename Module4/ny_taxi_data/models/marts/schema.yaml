@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: dim_vendors
+    description: "This table contains vendor information. Normally there would be everything documented here, but I keep it incomplete"
+    columns:
+    - name: vendorid
+      description: vendorid description
+
+columns:
+  - name: payment
+    data_tests:
+      - accepted_values:
+          arguments:
+            values: [1, 2, 3, 4, 5]
+            quote: false
