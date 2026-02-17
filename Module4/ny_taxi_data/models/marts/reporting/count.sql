@@ -1,0 +1,1 @@
+select count(*) as count_of_rows from {{ref("fct_monthly_zone_revenue")}}
