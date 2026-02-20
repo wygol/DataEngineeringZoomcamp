@@ -1,4 +1,9 @@
 # Dataclub.talks Data Engineering Zoomcamp
+
+## Introduction
+This repository reflects the learnings from the different modules taught in the Data Engineering course offered by [datatalks.club](https://datatalks.club/). In the following sections you will see everything that I learned. During the course I made heavy use of the New York City Taxi Comission Dataset which has a rich data history with multiple hundred million rows. During the scope of the course I learned different methods of data ingestion (e.g. via Python, DuckDB, Kestra) to different target systems (e.g. to PostgreSQL, DuckDB, Parquet, Google Cloud Storage) and also how to transport data efficiently over the internet. Furthermore, I learned about data quality and tools that ensure that data is received and transformed to the highest quality standards needed for my project (e.g. with dbt test I could check whether my data schemas broke over time and I could define time errors, so that I receive an error when my data is older than 15 hours). This course has teached me a lot about the entire data engineering pipeline and has allowed me to deepen my knowledge in this interesting field alone in the future.
+
+
 ## [Module 1](./Module1/)
 In this module you will see my first docker container setups and my docker compose for a PostgreSQL database and a pgadmin container. There is also a python script to ingest NYC taxi data into the PostgreSQL entity.
 Afterwards I analyzed the data with some sql queries.
@@ -24,3 +29,6 @@ In this module I was introduced to the general architecture of BigQuery, how it 
 
 ## [Module 4](./Module4/)
 Inn this module I was introduced to Analytics Engineering and learned the tool dbt and got better with bigquery. The course offered to use dbt via a local or remote setup. The local setup makes use of duckdb while the remote setup uses dbt labs and connects via their web gui to my bigquery instance. I used the remote approach for this task, so that I can benefit from my previously developed setup (terraform etc.). You can see all my models ([staging](./Module4/ny_taxi_data/models/staging), [intermediate](./Module4/ny_taxi_data/models/intermediate), and [marts](./Module4/ny_taxi_data/models/marts) in this dedicated dbt [folder](./Module4/ny_taxi_data). I reused some of the code from the lecturer (Juan Manuel Perafan) and wrote the rest myself. 
+
+### Note
+The repository is still growing because Module 5 and 6 still need to be done by me.
