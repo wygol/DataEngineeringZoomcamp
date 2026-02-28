@@ -1,3 +1,6 @@
+This README was used by my AI agent to get an understanding of this project / module and to build the end-to-end pipeline together with me. It contains the learning goals, tutorial outline, and step-by-step instructions for building the pipeline.
+
+
 # Overview - End-to-End Data Platform
 
 This hands-on tutorial guides you through building a **complete NYC Taxi data pipeline** from scratch using Bruin - a unified CLI tool for data ingestion, transformation, orchestration, and governance.
