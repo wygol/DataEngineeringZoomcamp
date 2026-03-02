@@ -104,6 +104,7 @@ WITH raw_data AS (
   WHERE tpep_pickup_datetime >= '{{ start_datetime }}'
     AND tpep_pickup_datetime < '{{ end_datetime }}'
     AND fare_amount >= 0  -- Filter out invalid records with negative fares
+    AND trip_distance >= 0  -- Filter out invalid records with negative distances
 ),
 deduplicated AS (
   -- Keep only the first row (most recent extraction) for each composite key
