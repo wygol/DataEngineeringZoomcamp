@@ -25,7 +25,7 @@ def open_library_rest_api_source():
                     "params": {
                         "author": "Nassim Taleb",
                         # request a reasonable page size; max seems to be 100
-                        "limit": 100
+                        "limit": 100,
                     },
                     "data_selector": "docs",
                     "paginator": {
@@ -35,9 +35,9 @@ def open_library_rest_api_source():
                         "offset_param": "offset",
                         "limit_param": "limit",
                         # the JSON response contains `numFound` to indicate total
-                        "total_path": "numFound"
-                    }
-                }
+                        "total_path": "numFound",
+                    },
+                },
             }
         ],
         # no shared defaults required for this simple example
@@ -47,8 +47,8 @@ def open_library_rest_api_source():
 
 
 pipeline = dlt.pipeline(
-    pipeline_name='open_library_pipeline',
-    destination='duckdb',
+    pipeline_name="open_library_pipeline",
+    destination="duckdb",
     # `refresh="drop_sources"` ensures the data and the state is cleaned
     # on each `pipeline.run()`; remove the argument once you have a
     # working pipeline.

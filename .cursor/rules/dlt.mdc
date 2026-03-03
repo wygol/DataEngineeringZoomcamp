@@ -1,10 +1,11 @@
 ---
-applyTo: '**/*.py'
+alwaysApply: false
 description: Information about dlt
+globs: '**/*.py'
 ---
 
 # Guidelines
-1. dlt means "data load tool". It is an open source Python library installable via `pip install dlt` or via `uv add dlt` (in this project uv is accessible).
+1. dlt means "data load tool". It is an open source Python library installable via `pip install dlt`.
 2. To create a new pipeline, use `dlt init <source> <destination>`.
 3. The dlt library comes with the `dlt` CLI. Add the `--help` flag to any command to verify its specs. 
 4. The preferred way to configure dlt (sources, resources, destinations, etc.) is to use `.dlt/config.toml` and `.dlt/secrets.toml`
