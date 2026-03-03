@@ -7,6 +7,7 @@ requires-python = ">=3.13"
 dependencies = [
     "dbt-core>=1.10.19",
     "dlt[duckdb,workspace]>=1.22.2",
+    "duckdb>=1.4.4",
     "google-api-core>=2.29.0",
     "google-cloud-storage>=3.9.0",
     "pandas>=2.3.3",

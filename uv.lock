@@ -2135,6 +2135,7 @@ source = { virtual = "." }
 dependencies = [
     { name = "dbt-core" },
     { name = "dlt", extra = ["duckdb", "workspace"] },
+    { name = "duckdb" },
     { name = "google-api-core" },
     { name = "google-cloud-storage" },
     { name = "pandas" },
@@ -2157,6 +2158,7 @@ dev = [
 requires-dist = [
     { name = "dbt-core", specifier = ">=1.10.19" },
     { name = "dlt", extras = ["duckdb", "workspace"], specifier = ">=1.22.2" },
+    { name = "duckdb", specifier = ">=1.4.4" },
     { name = "google-api-core", specifier = ">=2.29.0" },
     { name = "google-cloud-storage", specifier = ">=3.9.0" },
     { name = "pandas", specifier = ">=2.3.3" },
